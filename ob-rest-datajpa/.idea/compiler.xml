@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ob-rest-datajpa" target="17" />
+      <module name="ob-rest-datajpa" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
