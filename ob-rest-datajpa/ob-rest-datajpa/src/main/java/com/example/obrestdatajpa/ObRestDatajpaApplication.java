@@ -33,9 +33,9 @@ public class ObRestDatajpaApplication {
 		System.out.println("Numero de libros en BD: " + repository.findAll().size());
 
 		//Borrar un libro
-		repository.delete(book1);
+		//repository.delete(book1);
 
-		System.out.println("Numero de libros en BD: " + repository.findAll().size());
+		//System.out.println("Numero de libros en BD: " + repository.findAll().size());
 	}
 
 }

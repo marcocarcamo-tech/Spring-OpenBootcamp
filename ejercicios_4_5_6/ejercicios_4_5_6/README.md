@@ -4,9 +4,13 @@ Este proyecto corresponde a los ejercicios 4, 5 y 6 del curso de Spring de Opent
 
 Crear un proyecto Spring Boot con las dependencias:
 
+Starters para persistencia:
+
 H2
 
 Spring Data JPA
+
+Starters para web:
 
 Spring Web
 
