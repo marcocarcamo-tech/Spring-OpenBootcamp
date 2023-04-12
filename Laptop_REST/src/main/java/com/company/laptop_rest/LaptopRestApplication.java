@@ -7,11 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class Ejercicios456Application {
+public class LaptopRestApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = SpringApplication.run(Ejercicios456Application.class, args);
+		ApplicationContext context = SpringApplication.run(LaptopRestApplication.class, args);
 
 		LaptopRepository laptopRepository = context.getBean(LaptopRepository.class);
 
