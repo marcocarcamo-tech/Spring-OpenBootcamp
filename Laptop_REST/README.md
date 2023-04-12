@@ -61,6 +61,7 @@ Comprobamos que al consultar los registros nos devuelve también el último que 
 ## Ejercicio 5
 
 Implementar los métodos CRUD en el API REST de Laptop creada en ejercicios anteriores.
+Para este ejercicio se implementaron diferentes criterios de acuerdo a los mostrado en las clases
 
 Los métodos CRUD:
 
@@ -76,9 +77,23 @@ delete()
 
 deleteAll()
 
+
 ## Ejercicio 6
 
 Implementar swagger sobre el API REST de Laptop y verificar que funciona en la URL: http://localhost:8081/swagger-ui/
+
+Para este proyecto decidí implementar la nueva version de Swagger 3. Lo hice con
+la dependecia de spring-doc-openapi en vez de utilizar el sugerido que es spring-fox
+
+Por lo tanto el archivo de configuración es un poco diferente, ya que en lugar de usar la
+clase Docket implementamos una instancia de OpenAPI.
+
+![img_6.png](img_6.png)
+
+Y el resultado en http://localhost:8081/swagger-ui/index.html#/ es el siguiente
+
+![img_5.png](img_5.png)
+
 
 ## Ejercicio 7
 

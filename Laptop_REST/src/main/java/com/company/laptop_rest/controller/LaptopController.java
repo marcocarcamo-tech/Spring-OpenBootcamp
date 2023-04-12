@@ -2,6 +2,7 @@ package com.company.laptop_rest.controller;
 
 import com.company.laptop_rest.entity.Laptop;
 import com.company.laptop_rest.repository.LaptopRepository;
+import io.swagger.v3.oas.annotations.Operation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +27,7 @@ public class LaptopController {
 
 
 
+    @Operation(summary = "Obtiene todas las laptops existentes")
     // Recuperar todas las laptops de la base de datos
     @GetMapping("/api/laptops")
     private List<Laptop> getAllLaptops(){
@@ -33,6 +35,7 @@ public class LaptopController {
     }
 
     //Encontrar por id
+    @Operation(summary = "Obtiene una laptop indicando su id en la url")
     @GetMapping("/api/laptops/{id}")
     public ResponseEntity<Laptop> findOneLaptopById (@PathVariable Long id){
 
@@ -46,6 +49,7 @@ public class LaptopController {
     }
 
     //Crear una laptop
+    @Operation(summary = "Crea una laptop indicando el cuerpo en la petición")
     @PostMapping("/api/laptops")
     public Laptop createLaptop (@RequestBody Laptop laptop, @RequestHeader HttpHeaders header){
 
@@ -57,6 +61,7 @@ public class LaptopController {
     }
 
     //Actualizar
+    @Operation(summary = "Actualiza una laptop indicando el cuerpo en la petición")
     @PutMapping("/api/laptops")
     public ResponseEntity updateLaptop (@RequestBody Laptop laptop) {
 
@@ -75,6 +80,7 @@ public class LaptopController {
 
     //Borrar uno por id
 
+    @Operation(summary = "Borra una laptop indicando su id en la url")
     @DeleteMapping("/api/laptops/{id}")
     public ResponseEntity<Laptop> deleteOneLaptopById (@PathVariable  Long id){
 
@@ -92,6 +98,7 @@ public class LaptopController {
 
     //Borrar todos
 
+    @Operation(summary = "Borra todas las laptops")
     @DeleteMapping("/api/laptops")
     public ResponseEntity<Laptop> deleteAllLaptops (){
 
