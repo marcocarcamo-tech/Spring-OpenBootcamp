@@ -97,4 +97,7 @@ Y el resultado en http://localhost:8081/swagger-ui/index.html#/ es el siguiente
 
 ## Ejercicio 7
 
-Crear casos de test para el controlador de Laptop desde Spring Boot. Con click derecho dentro del código de la clase LaptopController utilizar la opción Generate > Test para crear la clase con todos los tests unitarios e implementarlos siguiente el proceso visto en clase.
+Crear casos de test para el controlador de Laptop desde Spring Boot. 
+Con click derecho dentro del código de la clase LaptopController utilizar la 
+opción Generate > Test para crear la clase con todos los tests unitarios e 
+implementarlos siguiente el proceso visto en clase.
