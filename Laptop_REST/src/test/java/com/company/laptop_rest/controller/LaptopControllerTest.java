@@ -100,14 +100,94 @@ class LaptopControllerTest {
 
     @Test
     void updateLaptop() {
+        //Configuración de la prueba
 
+        //Definimos los headers de la petición
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+        //Instancia de Laptop para realizar los asserts
+        Laptop laptop=  new Laptop(null, "Lenovo", "Yoga 7i", "Intel i7", "SSD", 22999.0);
+
+        laptopRepository.save(laptop);
+
+        //Definimos el cuerpo de la petición
+        String json = "{\n" +
+                "\t\"id\": \"1\",\n" +
+                "\t\"brand\": \"brand test\",\n" +
+                "\t\"model\": \"model test\",\n" +
+                "\t\"processor\": \"processor test\",\n" +
+                "\t\"memoryType\": \"memory test\",\n" +
+                "\t\"price\": 2000.0\n" +
+                "}";
+
+        //Creamos una entidad http y le pasamos el cuerpo y headers
+        HttpEntity<String> request = new HttpEntity<>(json, headers);
+
+        //Ejecución y hacer asserts
+        ResponseEntity<Laptop> response = testRestTemplate.exchange("/api/laptops", HttpMethod.PUT, request, Laptop.class);
+
+        Laptop result = response.getBody();
+
+        assertEquals(1L, result.getId());
+        assertEquals("brand test", result.getBrand());
+        assertEquals("model test", result.getModel());
+        assertEquals("processor test", result.getProcessor());
     }
 
     @Test
     void deleteOneLaptopById() {
+        //Configuración de la prueba
+
+        //Definimos los headers de la petición
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+        //Instancia de Laptop para realizar los asserts
+        Laptop laptop=  new Laptop(null, "Lenovo", "Yoga 7i", "Intel i7", "SSD", 22999.0);
+
+        laptopRepository.save(laptop);
+
+        //Definimos el cuerpo de la petición
+        String json = "{}";
+
+        //Creamos una entidad http y le pasamos el cuerpo y headers
+        HttpEntity<String> request = new HttpEntity<>(json, headers);
+
+        //Ejecución y hacer asserts
+        ResponseEntity<Laptop> response = testRestTemplate.exchange("/api/laptops/1", HttpMethod.DELETE, request, Laptop.class);
+
+        assertEquals("204 NO_CONTENT", response.getStatusCode().toString());
+        assertNull(response.getBody());
     }
 
     @Test
     void deleteAllLaptops() {
+        //Configuración de la prueba
+
+        //Definimos los headers de la petición
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+
+        //Instancia de Laptop para realizar los asserts
+        Laptop laptop_1=  new Laptop(null, "Lenovo", "Yoga 7i", "Intel i7", "SSD", 22999.0);
+        Laptop laptop_2 =  new Laptop(null, "Apple", "MacBook Pro", "Intel i7", "SSD", 32499.00d);
+        laptopRepository.save(laptop_1);
+        laptopRepository.save(laptop_2);
+
+        //Definimos el cuerpo de la petición
+        String json = "{}";
+
+        //Creamos una entidad http y le pasamos el cuerpo y headers
+        HttpEntity<String> request = new HttpEntity<>(json, headers);
+
+        //Ejecución y hacer asserts
+        ResponseEntity<Laptop> response = testRestTemplate.exchange("/api/laptops", HttpMethod.DELETE, request, Laptop.class);
+
+        assertEquals("204 NO_CONTENT", response.getStatusCode().toString());
+        assertNull(response.getBody());
     }
 }
