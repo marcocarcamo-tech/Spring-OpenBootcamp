@@ -30,6 +30,7 @@ class LaptopControllerTest {
     void setUp(){
         restTemplateBuilder = restTemplateBuilder.rootUri("http://localhost:" + port);
         testRestTemplate = new TestRestTemplate(restTemplateBuilder);
+
     }
     @Autowired
     LaptopRepository laptopRepository;
@@ -40,6 +41,7 @@ class LaptopControllerTest {
         //Configuración de la prueba
 
         //Definimos los headers de la petición
+
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
@@ -61,7 +63,7 @@ class LaptopControllerTest {
 
         Laptop result = response.getBody();
 
-        assertEquals(1L, result.getId());
+        assertEquals(1l, result.getId());
         assertEquals("brand test", result.getBrand());
         assertEquals("model test", result.getModel());
         assertEquals("processor test", result.getProcessor());
